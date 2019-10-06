@@ -26,27 +26,27 @@ namespace ASP.NET_MVC_App.Mocks
 
             Products = new List<Product> {
                 new Product { Id = 1, Name = "Apple", Price=0.50M, CategoryId = 1 },
-                new Product { Id = 2, Name = "Orange", Price=0.50M, CategoryId = 1 },
-                new Product { Id = 3, Name = "Pear", Price=0.50M, CategoryId = 1 },
+                new Product { Id = 2, Name = "Orange", Price=0.90M, CategoryId = 1 },
+                new Product { Id = 3, Name = "Pear", Price=0.80M, CategoryId = 1 },
 
-                new Product { Id = 4, Name = "Carrot", Price=0.50M, CategoryId = 2 },
+                new Product { Id = 4, Name = "Carrot", Price=0.20M, CategoryId = 2 },
                 new Product { Id = 5, Name = "Tomato", Price=0.50M, CategoryId = 2 },
-                new Product { Id = 6, Name = "Spinach", Price=0.50M, CategoryId = 2 },
+                new Product { Id = 6, Name = "Spinach", Price=1M, CategoryId = 2 },
 
-                new Product { Id = 7, Name = "Chocolate", Price=0.50M, CategoryId = 3 },
-                new Product { Id = 8, Name = "Cookies", Price=0.50M, CategoryId = 3 },
+                new Product { Id = 7, Name = "Chocolate", Price=2M, CategoryId = 3 },
+                new Product { Id = 8, Name = "Cookies", Price=3.50M, CategoryId = 3 },
 
-                new Product { Id = 9, Name = "Water", Price=0.50M, CategoryId = 4 },
-                new Product { Id = 10, Name = "Juice", Price=0.50M, CategoryId = 4 },
+                new Product { Id = 9, Name = "Water", Price=0.20M, CategoryId = 4 },
+                new Product { Id = 10, Name = "Juice", Price=2.50M, CategoryId = 4 },
 
-                new Product { Id = 11, Name = "Milk", Price=0.50M, CategoryId = 5 },
-                new Product { Id = 12, Name = "Butter", Price=0.50M, CategoryId = 5 },
-                new Product { Id = 13, Name = "Cheese", Price=0.50M, CategoryId = 5 },
+                new Product { Id = 11, Name = "Milk", Price=1.50M, CategoryId = 5 },
+                new Product { Id = 12, Name = "Butter", Price=3M, CategoryId = 5 },
+                new Product { Id = 13, Name = "Cheese", Price=3.50M, CategoryId = 5 },
             };
 
             Customers = new List<Customer> {
                 new Customer { Id = 1, FirstName = "Paul", LastName = "Mueller", Email = "Mueller@mail.com" },
-                new Customer { Id = 2, FirstName = "Monica", LastName = "Alfaro", Email = "Alfaro@mail.com" },
+                new Customer { Id = 2, FirstName = "Monica", LastName = "Faro", Email = "Alfaro@mail.com" },
                 new Customer { Id = 3, FirstName = "Jeanette", LastName = "Stewart", Email = "Stewart@mail.com" },
                 new Customer { Id = 4, FirstName = "Leslie", LastName = "Schneider", Email = "Schneider@mail.com" },
                 new Customer { Id = 5, FirstName = "Victor ", LastName = "Mason", Email = "Mason@mail.com" },
@@ -61,7 +61,7 @@ namespace ASP.NET_MVC_App.Mocks
                 new Order { Id = 2, Amount = 2, CustomerId = 1, ProductId =12 },
 
                 new Order { Id = 3, Amount = 1, CustomerId = 2, ProductId =1 },
-                new Order { Id = 3, Amount = 3, CustomerId = 2, ProductId =2 },
+                new Order { Id = 3, Amount = 3, CustomerId = 2, ProductId =1 },
                 new Order { Id = 3, Amount = 1, CustomerId = 2, ProductId =12 },
 
                 new Order { Id = 4, Amount = 1, CustomerId = 3, ProductId =2 },

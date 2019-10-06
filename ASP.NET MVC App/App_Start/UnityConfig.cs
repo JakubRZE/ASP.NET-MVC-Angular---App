@@ -1,4 +1,5 @@
 using System.Web.Mvc;
+using ASP.NET_MVC_App.Facade;
 using ASP.NET_MVC_App.IRepositories;
 using ASP.NET_MVC_App.Mocks;
 using ASP.NET_MVC_App.Repositories;
@@ -20,6 +21,9 @@ namespace ASP.NET_MVC_App
             // e.g. container.RegisterType<ITestService, TestService>();
 
             container.RegisterType<MockContext>();
+
+            container.RegisterType<ProductFacade>();
+            container.RegisterType<CategoryFacade>();
 
             container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<ICategoryRepository, CategoryRepository>();

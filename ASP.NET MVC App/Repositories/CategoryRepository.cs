@@ -11,6 +11,7 @@ namespace ASP.NET_MVC_App.Repositories
     public class CategoryRepository: ICategoryRepository
     {
         private List<Category> _categories;
+
         private MockContext MockContext { get; set; }
 
         public CategoryRepository()
