@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASP.NET_MVC_App.Facade;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,13 @@ namespace ASP.NET_MVC_App.Controllers
 {
     public class ProductController : Controller
     {
+        private CategoryFacade _categoryFacade { get; set; }
+
+        public ProductController()
+        {
+            _categoryFacade = new CategoryFacade(); // todo DI
+        }
+
         // GET: Product
         public ActionResult Index()
         {
@@ -17,6 +25,7 @@ namespace ASP.NET_MVC_App.Controllers
         // GET: Product/Details/5
         public ActionResult Details(int id)
         {
+            var products = _categoryFacade.GetCategories();
             return View();
         }
 
