@@ -9,7 +9,7 @@ namespace ASP.NET_MVC_App.Models
     public class Customer
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string FirstName { get; set; }

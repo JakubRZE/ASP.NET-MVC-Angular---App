@@ -16,9 +16,9 @@ namespace ASP.NET_MVC_App.Facade
             _categoryRepository = new CategoryRepository();
         }
 
-        public List<Category> GetCategories()
+        public IEnumerable<Category> GetCategories()
         {
-            return _categoryRepository.GetCategories();
+            return _categoryRepository.GetAllCategories();
         }
     }
 }

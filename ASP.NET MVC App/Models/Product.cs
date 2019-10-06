@@ -19,7 +19,7 @@ namespace ASP.NET_MVC_App.Models
 
         [Required]
         public int CategoryId { get; set; }
-        public virtual Category Category { get; set; }
+        public Category Category { get; set; }
 
         public virtual IList<Order> Order { get; set; }
     }

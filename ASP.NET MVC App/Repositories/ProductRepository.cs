@@ -1,45 +1,40 @@
-﻿using ASP.NET_MVC_App.Models;
+﻿using ASP.NET_MVC_App.IRepositories;
+using ASP.NET_MVC_App.Models;
 using System.Collections.Generic;
 using System.Linq;
+using ASP.NET_MVC_App.Mocks;
 
 namespace ASP.NET_MVC_App.Repositories
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
-        private List<Product> _products;
+        private readonly MockContext _mockContext;
 
-        public ProductRepository()
+        public ProductRepository(MockContext mockContext)
         {
-            if (_products == null)
-            {
-                InitializeProducts();
-            }
+            _mockContext = mockContext;
         }
 
-        private void InitializeProducts()
+
+        public IEnumerable<Product> GetAllProducts()
         {
-            _products = new List<Product> {
-                new Product { Id = 1, Name = "Apple", Price=0.50M, CategoryId = 1},
-                new Product { Id = 2, Name = "Orange", Price=0.50M, CategoryId = 1},
-                new Product { Id = 3, Name = "", Price=0.50M, CategoryId = 1},
-                new Product { Id = 4, Name = "Apple", Price=0.50M, CategoryId = 1},
-                new Product { Id = 5, Name = "Apple", Price=0.50M, CategoryId = 1},
-                new Product { Id = 6, Name = "Apple", Price=0.50M, CategoryId = 1},
-                new Product { Id = 7, Name = "Apple", Price=0.50M, CategoryId = 1},
-                new Product { Id = 8, Name = "Apple", Price=0.50M, CategoryId = 1},
-                new Product { Id = 9, Name = "Apple", Price=0.50M, CategoryId = 1},
-                new Product { Id = 10, Name = "Apple", Price=0.50M, CategoryId = 1},
-            };
+            return _mockContext.Products;
         }
 
-        public IEnumerable<Product> GetAllPies()
+        public Product GetProductById(int id)
         {
-            return _products;
+            throw new System.NotImplementedException();
         }
 
-        public Product GetPieById(int productId)
-        {
-            return _products.FirstOrDefault(p => p.Id == productId);
-        }
+
+        //public IEnumerable<Product> GetAllPies()
+        //{
+        //    return _products;
+        //}
+
+        //public Product GetPieById(int productId)
+        //{
+        //    return _products.FirstOrDefault(p => p.Id == productId);
+        //}
     }
 }
