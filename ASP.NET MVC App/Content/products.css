@@ -3,3 +3,7 @@
     -moz-box-shadow: 5px 6px 22px 5px rgba(0,0,0,0.28);
     box-shadow: 5px 6px 22px 5px rgba(0,0,0,0.28);
 }
+
+.table .thead-dark th {
+    background-color: #4b45b8;
+}

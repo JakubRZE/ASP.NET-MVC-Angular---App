@@ -19,15 +19,15 @@ namespace ASP.NET_MVC_App.Repositories
         public IList<Product> GetAllProducts()
         {
             var result = (from product in _mockContext.Products
-                           join category in _mockContext.Categories on product.CategoryId equals category.Id
-                           select new Product
-                           {
-                               Id = product.Id,
-                               Name = product.Name,
-                               Price = product.Price,
-                               Category = category,
-                               Order = _mockContext.Orders.Where(x => x.ProductId == product.Id).ToList()
-                           }).ToList();
+                          join category in _mockContext.Categories on product.CategoryId equals category.Id
+                          select new Product
+                          {
+                              Id = product.Id,
+                              Name = product.Name,
+                              Price = product.Price,
+                              Category = category,
+                              Order = _mockContext.Orders.Where(x => x.ProductId == product.Id).ToList()
+                          }).ToList();
             return result;
         }
 
@@ -48,19 +48,19 @@ namespace ASP.NET_MVC_App.Repositories
         //   return product;
         //}
 
-       
 
 
-            //(from product in _mockContext.Products
-            // select new ProductVM
-            // {
-            //     Name = product.Name,
-                 
-            // }).ToList();
 
-  
+        //(from product in _mockContext.Products
+        // select new ProductVM
+        // {
+        //     Name = product.Name,
+
+        // }).ToList();
 
 
-      
+
+
+
     }
 }

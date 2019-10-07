@@ -56,31 +56,31 @@ namespace ASP.NET_MVC_App.Mocks
 
             Orders = new List<Order>
             {
-                new Order { Id = 1, Amount = 1, CustomerId = 1, ProductId =1 },
-                new Order { Id = 2, Amount = 1, CustomerId = 1, ProductId =4 },
+                new Order { Id = 1, Amount = 4, CustomerId = 1, ProductId =1 },
+                new Order { Id = 2, Amount = 4, CustomerId = 1, ProductId =4 },
                 new Order { Id = 2, Amount = 2, CustomerId = 1, ProductId =12 },
 
                 new Order { Id = 3, Amount = 1, CustomerId = 2, ProductId =1 },
-                new Order { Id = 3, Amount = 3, CustomerId = 2, ProductId =1 },
+                new Order { Id = 3, Amount = 3, CustomerId = 2, ProductId =6 },
                 new Order { Id = 3, Amount = 1, CustomerId = 2, ProductId =12 },
 
-                new Order { Id = 4, Amount = 1, CustomerId = 3, ProductId =2 },
-                new Order { Id = 5, Amount = 2, CustomerId = 3, ProductId =3 },
-                new Order { Id = 6, Amount = 1,CustomerId = 3, ProductId =4 },
+                new Order { Id = 4, Amount = 2, CustomerId = 3, ProductId =3 },
+                new Order { Id = 5, Amount = 3, CustomerId = 3, ProductId =7 },
+                new Order { Id = 6, Amount = 1,CustomerId = 3, ProductId =9 },
                 new Order { Id = 6, Amount = 2, CustomerId = 3, ProductId =11 },
 
-                new Order { Id = 7, Amount = 1,CustomerId = 4, ProductId =5 },
-                new Order { Id = 8, Amount = 1, CustomerId = 4, ProductId =6 },
-                new Order { Id = 8, Amount = 4, CustomerId = 4, ProductId =9 },
+                new Order { Id = 7, Amount = 1,CustomerId = 4, ProductId =3 },
+                new Order { Id = 8, Amount = 1, CustomerId = 4, ProductId =4 },
+                new Order { Id = 8, Amount = 4, CustomerId = 4, ProductId =7 },
 
-                new Order { Id = 9, Amount = 1, CustomerId = 5, ProductId =3 },
-                new Order { Id = 9, Amount = 2, CustomerId = 5, ProductId =7 },
-                new Order { Id = 10, Amount = 1, CustomerId = 5, ProductId =8 },
+                new Order { Id = 9, Amount = 3, CustomerId = 5, ProductId =2 },
+                new Order { Id = 9, Amount = 2, CustomerId = 5, ProductId =5 },
+                new Order { Id = 10, Amount = 1, CustomerId = 5, ProductId =10 },
 
-                new Order { Id = 10, Amount = 1, CustomerId = 6, ProductId =9 },
+                new Order { Id = 10, Amount = 1, CustomerId = 6, ProductId =2 },
                 new Order { Id = 10, Amount = 3, CustomerId = 6, ProductId =10 },
-                new Order { Id = 10, Amount = 1, CustomerId = 6, ProductId =7 },
-                new Order { Id = 10, Amount = 2, CustomerId = 6, ProductId =6 },
+                new Order { Id = 10, Amount = 1, CustomerId = 6, ProductId =5 },
+                new Order { Id = 10, Amount = 2, CustomerId = 6, ProductId =9 },
             };
         }
     }

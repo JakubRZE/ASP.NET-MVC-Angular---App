@@ -26,8 +26,8 @@ namespace ASP.NET_MVC_App.Facade.Service
                     Name = p.Name,
                     Price = p.Price,
                     Category = p.Category.Name,
-                    OrdersCount = p.Order.Count()
-                }).ToList();
+                    OrdersCount = p.Order.Sum(o => o.Amount)
+        }).ToList();
 
             return result;
         }
