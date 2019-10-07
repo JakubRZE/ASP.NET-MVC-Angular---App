@@ -10,7 +10,5 @@ namespace ASP.NET_MVC_App.IRepositories
     public interface IProductRepository
     {
         IList<Product> GetAllProducts();
-
-        Product GetProductById(int id);
     }
 }

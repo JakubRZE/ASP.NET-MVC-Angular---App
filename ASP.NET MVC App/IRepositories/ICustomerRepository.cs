@@ -8,8 +8,6 @@ namespace ASP.NET_MVC_App.IRepositories
 {
     public interface ICustomerRepository
     {
-        IEnumerable<Customer> GetAllCustomers();
 
-        Customer GetCustomerById(int id);
     }
 }

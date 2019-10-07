@@ -25,7 +25,7 @@ namespace ASP.NET_MVC_App.Repositories
                                Id = product.Id,
                                Name = product.Name,
                                Price = product.Price,
-                               Category =category,
+                               Category = category,
                                Order = _mockContext.Orders.Where(x => x.ProductId == product.Id).ToList()
                            }).ToList();
             return result;
@@ -48,32 +48,19 @@ namespace ASP.NET_MVC_App.Repositories
         //   return product;
         //}
 
-        public Product GetProductById(int id)
-        {
-            //var product - _mockContext
+       
 
 
-
-
-            (from product in _mockContext.Products
-             select new ProductVM
-             {
-                 Name = product.Name,
+            //(from product in _mockContext.Products
+            // select new ProductVM
+            // {
+            //     Name = product.Name,
                  
-             }).ToList();
+            // }).ToList();
 
-            throw new System.NotImplementedException();
-        }
+  
 
 
-        //public IEnumerable<Product> GetAllPies()
-        //{
-        //    return _products;
-        //}
-
-        //public Product GetPieById(int productId)
-        //{
-        //    return _products.FirstOrDefault(p => p.Id == productId);
-        //}
+      
     }
 }

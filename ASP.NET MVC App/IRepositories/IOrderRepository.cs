@@ -8,8 +8,6 @@ namespace ASP.NET_MVC_App.IRepositories
 {
     public interface IOrderRepository
     {
-        IEnumerable<Order> GetAllOrders();
-
-        Order GetOrderById(int id);
+        IList<Order> GetAllOrders(int id);
     }
 }

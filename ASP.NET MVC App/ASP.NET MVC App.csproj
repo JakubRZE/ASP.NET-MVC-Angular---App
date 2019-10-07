@@ -129,10 +129,9 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Facade\CategoryFacade.cs" />
-    <Compile Include="Facade\CustomerFacade.cs" />
-    <Compile Include="Facade\OrderFacade.cs" />
-    <Compile Include="Facade\ProductFacade.cs" />
+    <Compile Include="Facade\BLLFacade.cs" />
+    <Compile Include="Facade\Service\OrderService.cs" />
+    <Compile Include="Facade\Service\ProductService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

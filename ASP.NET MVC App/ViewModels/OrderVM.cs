@@ -9,11 +9,10 @@ namespace ASP.NET_MVC_App.ViewModels
 {
     public class OrderVM
     {
-        [Required]
         public int Amount { get; set; }
         
-        public Customer Customer { get; set; }
-        
-        public Product Product { get; set; }
+        public string CustomerName { get; set; }
+
+        public string CustomerEmail { get; set; }
     }
 }

@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ASP.NET_MVC_App.IRepositories;
-using ASP.NET_MVC_App.Models;
 using ASP.NET_MVC_App.ViewModels;
 
-namespace ASP.NET_MVC_App.Facade
+namespace ASP.NET_MVC_App.Facade.Service
 {
-    public class ProductFacade
+    public class ProductService
     {
         private readonly IProductRepository _productRepository;
 
-        public ProductFacade(IProductRepository productRepository)
+        public ProductService(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
@@ -24,19 +23,13 @@ namespace ASP.NET_MVC_App.Facade
                 new ProductVM
                 {
                     Id = p.Id,
-                    Name =p.Name,
+                    Name = p.Name,
                     Price = p.Price,
                     Category = p.Category.Name,
                     OrdersCount = p.Order.Count()
                 }).ToList();
 
             return result;
-        }
-
-
-        public Product ProductDetails(int id)
-        {
-            return _productRepository.GetProductById(id);
         }
     }
 }

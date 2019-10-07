@@ -4,31 +4,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ASP.NET_MVC_App.IRepositories;
 
 namespace ASP.NET_MVC_App.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ProductFacade _productFacade;
+        private readonly BLLFacade _bllFacade;
 
-        public ProductController(ProductFacade productFacade)
+        public ProductController(BLLFacade bllFacade)
         {
-            _productFacade = productFacade;
+            _bllFacade = bllFacade;
         }
 
-        // GET: Product
-        public JsonResult Index()
+        // GET: Index
+        public ActionResult Index()
         {
-            var products = _productFacade.GetProducts();
+            return View();
+        }
+
+
+        // GET: Product/Products
+        public JsonResult Products()
+        {
+            var products = _bllFacade.GetProductsList();
             return Json(products, JsonRequestBehavior.AllowGet);
         }
 
-        //GET: Product/Details/5
-        public JsonResult Details(int id)
+        //GET: Product/Orders/5
+        public JsonResult Orders(int id)
         {
-            var product = _productFacade.ProductDetails(id);
-            return Json(product, JsonRequestBehavior.AllowGet);
+            var orders = _bllFacade.GetOrdersList(id);
+            return Json(orders, JsonRequestBehavior.AllowGet);
         }
     }
 }
