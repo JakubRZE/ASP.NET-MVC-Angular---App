@@ -1,0 +1,56 @@
+﻿<table class="table table-hover product-table">
+    <thead class="thead-dark">
+    <tr class="text-center">
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Orders</th>
+        <th scope="col">Category</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="text-center" ng-repeat="p in products" ng-click="onRowClick(p)">
+        <td>{{p.Name}}</td>
+        <td>{{p.Price}} $</td>
+        <td>{{p.OrdersCount}}</td>
+        <td>{{p.Category}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="modal" tabindex="-1" role="dialog" id="order-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 ng-if="prod" class="modal-title">Order history: {{prod}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Buyer Name</th>
+                        <th>Address Email</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="o in orders">
+                        <td>{{o.CustomerName}}</td>
+                        <td>{{o.CustomerEmail}}</td>
+                        <td class="text-center">{{o.Amount}}</td>
+                    </tr>
+                    <tr ng-if="!orders||orders.length==0">
+                        <td colspan="3" class="text-center">
+                            <p>No orders of this product so far :(</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

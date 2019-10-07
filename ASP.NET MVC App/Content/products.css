@@ -1,0 +1,5 @@
+﻿.product-table {
+    -webkit-box-shadow: 5px 6px 22px 5px rgba(0,0,0,0.28);
+    -moz-box-shadow: 5px 6px 22px 5px rgba(0,0,0,0.28);
+    box-shadow: 5px 6px 22px 5px rgba(0,0,0,0.28);
+}
