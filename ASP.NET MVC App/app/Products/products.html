@@ -1,86 +1,83 @@
-﻿<div class="row p-3">
-
-        <div class="col-3 active-blue-4 d-flex align-items-center ">
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-        </div>
-        <div class="col-5 active-blue-4 d-flex align-items-center justify-content-center">
-
-            <label class="m-0 ml-1 p-1 w-100">Price range:</label>
-            <input class="form-control price-inp" type="number" value="0.0" data-decimals="2" min="0" max="99" step="0.1" />
-
-            <label class="m-0 p-1"> - </label>
-            <input class="form-control price-inp" type="number" value="0.0" data-decimals="2" min="0" max="99" step="0.1" />
-            <label class="m-0 p-1"> $ </label>
-
-        </div>
-        <div class="col-4 prod-form-control d-flex align-items-center justify-content-center">
-
-            <label class="m-0" for="exampleSelect1">Category:</label>
-            <select class="form-control ml-3" id="exampleSelect1">
-                <option>-</option>
-                <option ng-repeat="c in categories">{{c.Name}}</option>
-            </select>
-
-        </div>
+﻿<div class="row p-4">
+    <div class="col-md-3 col-sm-6 active-blue-4 d-flex align-items-center ">
+        <input class="form-control" type="text" placeholder="Search..." aria-label="Search" ng-model="searchString">
     </div>
+    <div class="col-md-4 col-sm-6 active-blue-4 d-flex align-items-center justify-content-center">
+        <label class="m-0 ml-1 p-1 w-100">Price range:</label>
+        <input class="form-control price-inp" type="number" value="0.0" data-decimals="2" min="0" max="99" step="0.1"  ng-model="downPrice"/>
+        <label class="m-0 p-1"> - </label>
+        <input class="form-control price-inp" type="number" value="0.0" data-decimals="2" min="0" max="99" step="0.1"  ng-model="upPrice"/>
+        <label class="m-0 p-1"> $ </label>
+    </div>
+    <div class="col-md-4 col-sm-6 prod-form-control d-flex align-items-center justify-content-center">
+        <label class="m-0" for="exampleSelect1">Category:</label>
+        <select class="form-control ml-3" id="exampleSelect1"  ng-model="category">
+            <option value="null">-</option>
+            <option ng-repeat="c in categories" value="{{c.Id}}">{{c.Name}}</option>
+        </select>
+    </div>
+    <div class="col-md-1 col-sm-6 d-flex align-items-center justify-content-center">
+        <button type="button" class="btn btn-outline-primary" id="filterBtn" ng-click="submitFilters()">Filter</button>
+    </div>
+</div>
 
-    <div class="card-body">
+<div class="card-body">
 
-        <table class="table table-hover product-table">
-            <thead class="thead-dark">
-                <tr class="text-center">
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Orders</th>
-                    <th scope="col">Category</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="text-center" ng-repeat="p in products" ng-click="onRowClick(p)">
-                    <td>{{p.Name}}</td>
-                    <td>{{p.Price}} $</td>
-                    <td>{{p.OrdersCount}}</td>
-                    <td>{{p.Category}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="modal" tabindex="-1" role="dialog" id="order-modal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 ng-if="prod" class="modal-title">Order history: {{prod}}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
+    <table class="table table-hover product-table">
+        <thead class="thead-dark">
+            <tr class="text-center">
+                <th class="hover-item" ng-click="onHeaderClick('Name')">Name</th>
+                <th class="hover-item" ng-click="onHeaderClick('Price')">Price</th>
+                <th class="hover-item" ng-click="onHeaderClick('Orders')">Orders</th>
+                <th class="hover-item" ng-click="onHeaderClick('Category')">Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center" ng-repeat="p in products" ng-click="onRowClick(p)">
+                <td>{{p.Name}}</td>
+                <td>{{p.Price}} $</td>
+                <td>{{p.OrdersCount}}</td>
+                <td>{{p.Category}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="modal" tabindex="-1" role="dialog" id="order-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 ng-if="prod" class="modal-title">Order history: {{prod}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
 
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Buyer Name</th>
-                                    <th>Address Email</th>
-                                    <th>Amount</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="o in orders">
-                                    <td>{{o.CustomerName}}</td>
-                                    <td>{{o.CustomerEmail}}</td>
-                                    <td class="text-center">{{o.Amount}}</td>
-                                </tr>
-                                <tr ng-if="!orders||orders.length==0">
-                                    <td colspan="3" class="text-center">
-                                        <p>No orders of this product so far :(</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Buyer Name</th>
+                                <th>Address Email</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="o in orders">
+                                <td>{{o.CustomerName}}</td>
+                                <td>{{o.CustomerEmail}}</td>
+                                <td class="text-center">{{o.Amount}}</td>
+                            </tr>
+                            <tr ng-if="!orders||orders.length==0">
+                                <td colspan="3" class="text-center">
+                                    <p>No orders of this product so far :(</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 

@@ -19,49 +19,49 @@ namespace ASP.NET_MVC_App.Repositories
         }
 
 
-        //public IList<Product> GetAllProducts(string column = null, string sortOrder = null, string searchString = null)
-        //{
-
-        //    var query = (from product in _mockContext.Products
-        //                 join category in _mockContext.Categories on product.CategoryId equals category.Id
-        //                 select new Product
-        //                 {
-        //                     Id = product.Id,
-        //                     Name = product.Name,
-        //                     Price = product.Price,
-        //                     Category = category,
-        //                     Order = _mockContext.Orders.Where(x => x.ProductId == product.Id).ToList()
-        //                 }).AsQueryable();
-
-
-        //    if (!String.IsNullOrEmpty(searchString))
-        //    {
-        //        query = query.Where(p => p.Name.ToLower().Contains(searchString.ToLower()) ||
-        //                                 p.Price.ToString().Contains(searchString));
-        //    }
-
-        //    if (column != null)
-        //        query = query.OrderBy(column + " " + sortOrder);
-
-
-
-        //    return query.ToList();
-        //}
-
-
-        public IList<Product> GetAllProducts()
+        public IList<Product> GetAllProducts(Filter filter)
         {
-            var result = (from product in _mockContext.Products
-                          join category in _mockContext.Categories on product.CategoryId equals category.Id
-                          select new Product
-                          {
-                              Id = product.Id,
-                              Name = product.Name,
-                              Price = product.Price,
-                              Category = category,
-                              Order = _mockContext.Orders.Where(x => x.ProductId == product.Id).ToList()
-                          }).ToList();
-            return result;
+            var query = (from product in _mockContext.Products
+                         join cat in _mockContext.Categories on product.CategoryId equals cat.Id
+                         select new Product
+                         {
+                             Id = product.Id,
+                             Name = product.Name,
+                             Price = product.Price,
+                             Category = cat,
+                             Order = _mockContext.Orders.Where(x => x.ProductId == product.Id).ToList()
+                         }).AsQueryable();
+
+
+            if (!string.IsNullOrEmpty(filter.SearchString) )
+                query = query.Where(p => p.Name.ToLower().Contains(filter.SearchString.ToLower()));
+
+            if (filter.Category != null)
+                query = query.Where(p => p.Category.Id == filter.Category);
+
+            if(filter.DownPrice != null)
+                query = query.Where(p => p.Price >= filter.DownPrice);
+
+            if (filter.UpPrice != null)
+                query = query.Where(p => p.Price <= filter.UpPrice);
+
+            return query.ToList();
         }
+
+
+        //public IList<Product> GetAllProducts()
+        //{
+        //    var result = (from product in _mockContext.Products
+        //                  join cat in _mockContext.Categories on product.CategoryId equals cat.Id
+        //                  select new Product
+        //                  {
+        //                      Id = product.Id,
+        //                      Name = product.Name,
+        //                      Price = product.Price,
+        //                      Category = cat,
+        //                      Order = _mockContext.Orders.Where(x => x.ProductId == product.Id).ToList()
+        //                  }).ToList();
+        //    return result;
+        //}
     }
 }

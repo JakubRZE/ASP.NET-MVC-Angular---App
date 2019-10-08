@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ASP.NET_MVC_App.Facade.Service;
+using Filter = ASP.NET_MVC_App.ViewModels.Filter;
 
 namespace ASP.NET_MVC_App.Controllers
 {
@@ -27,9 +28,9 @@ namespace ASP.NET_MVC_App.Controllers
 
 
         // GET: Product/Products
-        public JsonResult Products()
+        public JsonResult Products(Filter filter)
         {
-            var products = _productService.GetProducts();
+            var products = _productService.GetProducts(filter);
             return Json(products, JsonRequestBehavior.AllowGet);
         }
 

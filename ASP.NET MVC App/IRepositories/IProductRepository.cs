@@ -9,6 +9,6 @@ namespace ASP.NET_MVC_App.IRepositories
 {
     public interface IProductRepository
     {
-        IList<Product> GetAllProducts();
+        IList<Product> GetAllProducts(Filter filter);
     }
 }

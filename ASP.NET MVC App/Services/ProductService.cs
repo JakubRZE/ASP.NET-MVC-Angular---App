@@ -20,9 +20,9 @@ namespace ASP.NET_MVC_App.Facade.Service
         }
 
 
-        public IList<ProductVM> GetProducts()
+        public IList<ProductVM> GetProducts(Filter filter)
         {
-            var result = _productRepository.GetAllProducts().Select(p =>
+            var result = _productRepository.GetAllProducts(filter).Select(p =>
                 new ProductVM
                 {
                     Id = p.Id,

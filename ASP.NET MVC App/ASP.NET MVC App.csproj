@@ -152,6 +152,7 @@
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="ViewModels\Dictionary.cs" />
+    <Compile Include="ViewModels\Filter.cs" />
     <Compile Include="ViewModels\OrderVM.cs" />
     <Compile Include="ViewModels\ProductVM.cs" />
   </ItemGroup>

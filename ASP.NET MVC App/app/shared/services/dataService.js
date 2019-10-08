@@ -6,9 +6,18 @@
         .factory('dataService', ['$http', '$q', function($http, $q) {
             var service = {};
 
-            service.getProducts = function() {
+            service.getProducts = function (searchString, category, downPrice, upPrice) {
                 var deferred = $q.defer();
-                $http.get('/Product/Products').then(function(result) {
+                $http({
+                    url: '/Product/Products/',
+                    method: "GET",
+                    params: {
+                        SearchString: searchString,
+                        Category: category,
+                        DownPrice: downPrice,
+                        UpPrice: upPrice
+                    }
+                }).then(function (result) {
                     deferred.resolve(result.data);
                 }, function() {
                     deferred.reject();
