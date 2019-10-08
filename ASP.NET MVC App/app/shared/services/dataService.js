@@ -6,7 +6,7 @@
         .factory('dataService', ['$http', '$q', function($http, $q) {
             var service = {};
 
-            service.getProducts = function (searchString, category, downPrice, upPrice) {
+            service.getProducts = function (searchString, category, downPrice, upPrice, sortParam, sortOrder) {
                 var deferred = $q.defer();
                 $http({
                     url: '/Product/Products/',
@@ -15,7 +15,9 @@
                         SearchString: searchString,
                         Category: category,
                         DownPrice: downPrice,
-                        UpPrice: upPrice
+                        UpPrice: upPrice,
+                        SortParam: sortParam,
+                        SortOrder: sortOrder
                     }
                 }).then(function (result) {
                     deferred.resolve(result.data);

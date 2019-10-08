@@ -11,5 +11,7 @@ namespace ASP.NET_MVC_App.ViewModels
         public int? Category { get; set; }
         public decimal? DownPrice { get; set; }
         public decimal? UpPrice { get; set; }
+        public string SortOrder { get; set; }
+        public string SortParam { get; set; }
     }
 }

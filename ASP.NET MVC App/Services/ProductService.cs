@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.WebPages;
 using ASP.NET_MVC_App.IRepositories;
 using ASP.NET_MVC_App.ViewModels;
+using System.Linq.Dynamic;
 
 namespace ASP.NET_MVC_App.Facade.Service
 {
@@ -30,7 +31,7 @@ namespace ASP.NET_MVC_App.Facade.Service
                     Price = p.Price,
                     Category = p.Category.Name,
                     OrdersCount = p.Order.Sum(o => o.Amount)
-        }).ToList();
+        }).OrderBy(filter.SortParam + " " + filter.SortOrder).ToList(); ;
 
             return result;
         }

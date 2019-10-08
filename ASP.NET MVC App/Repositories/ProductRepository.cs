@@ -3,7 +3,6 @@ using ASP.NET_MVC_App.IRepositories;
 using ASP.NET_MVC_App.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Dynamic;
 using ASP.NET_MVC_App.Mocks;
 using ASP.NET_MVC_App.ViewModels;
 
@@ -47,21 +46,5 @@ namespace ASP.NET_MVC_App.Repositories
 
             return query.ToList();
         }
-
-
-        //public IList<Product> GetAllProducts()
-        //{
-        //    var result = (from product in _mockContext.Products
-        //                  join cat in _mockContext.Categories on product.CategoryId equals cat.Id
-        //                  select new Product
-        //                  {
-        //                      Id = product.Id,
-        //                      Name = product.Name,
-        //                      Price = product.Price,
-        //                      Category = cat,
-        //                      Order = _mockContext.Orders.Where(x => x.ProductId == product.Id).ToList()
-        //                  }).ToList();
-        //    return result;
-        //}
     }
 }
