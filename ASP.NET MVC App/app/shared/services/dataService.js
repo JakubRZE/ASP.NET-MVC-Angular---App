@@ -16,6 +16,16 @@
                 return deferred.promise;
             };
 
+            service.getCategories = function () {
+                var deferred = $q.defer();
+                $http.get(`/Product/Categories`).then(function (result) {
+                    deferred.resolve(result.data);
+                }, function () {
+                    deferred.reject();
+                });
+                return deferred.promise;
+            };
+
             service.getOrders = function (id) {
                 var deferred = $q.defer();
                 $http.get(`/Product/Orders/${id}`).then(function (result) {

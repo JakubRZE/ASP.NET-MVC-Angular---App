@@ -23,7 +23,6 @@ namespace ASP.NET_MVC_App
 
             container.RegisterType<MockContext>();
 
-            container.RegisterType<BLLFacade>();
             container.RegisterType<OrderService>();
             container.RegisterType<ProductService>();
 

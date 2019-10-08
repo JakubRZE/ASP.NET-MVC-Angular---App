@@ -7,11 +7,19 @@
             [
                 '$scope', 'dataService', function($scope, dataService) {
                     $scope.products = [];
+                    $scope.categories = [];
                     $scope.orders = [];
                     $scope.prod = '';
 
 
                     getProducts();
+                    getCategories();
+
+                    $scope.onRowClick = function (row) {
+                        getOrders(row.Id);
+                        $scope.prod = row.Name;
+                        $('#order-modal').modal('show');
+                    }
 
                     function getProducts() {
                         dataService.getProducts().then(function(result) {
@@ -19,10 +27,10 @@
                         });
                     }
 
-                    $scope.onRowClick = function (row) {
-                        getOrders(row.Id);
-                        $scope.prod = row.Name;
-                        $('#order-modal').modal('show');
+                    function getCategories() {
+                        dataService.getCategories().then(function (result) {
+                            $scope.categories = result;
+                        });
                     }
 
                     function getOrders(id) {

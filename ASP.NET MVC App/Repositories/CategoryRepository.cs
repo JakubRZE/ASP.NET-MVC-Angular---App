@@ -10,9 +10,17 @@ namespace ASP.NET_MVC_App.Repositories
 {
     public class CategoryRepository: ICategoryRepository
     {
-        public IList<Category> GetAllCategories()
+        private readonly MockContext _mockContext;
+
+        public CategoryRepository(MockContext mockContext)
         {
-            throw new NotImplementedException();
+            _mockContext = mockContext;
+        }
+
+        public IList<Category> GetCategoryNames()
+        {
+            var result =  _mockContext.Categories.ToList();
+            return result;
         }
     }
 }

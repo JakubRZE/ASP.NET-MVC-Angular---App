@@ -8,6 +8,6 @@ namespace ASP.NET_MVC_App.IRepositories
 {
     public interface ICategoryRepository
     {
-        IList<Category> GetAllCategories();
+        IList<Category> GetCategoryNames();
     }
 }

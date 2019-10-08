@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.WebPages;
 using ASP.NET_MVC_App.IRepositories;
 using ASP.NET_MVC_App.ViewModels;
 
@@ -10,10 +11,12 @@ namespace ASP.NET_MVC_App.Facade.Service
     public class ProductService
     {
         private readonly IProductRepository _productRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public ProductService(IProductRepository productRepository)
+        public ProductService(IProductRepository productRepository, ICategoryRepository categoryRepository)
         {
             _productRepository = productRepository;
+            _categoryRepository = categoryRepository;
         }
 
 
@@ -29,6 +32,18 @@ namespace ASP.NET_MVC_App.Facade.Service
                     OrdersCount = p.Order.Sum(o => o.Amount)
         }).ToList();
 
+            return result;
+        }
+
+        public IList<Dictionary> GetCategories()
+        {
+            var result = _categoryRepository.GetCategoryNames().Select(c =>
+                new Dictionary
+                {
+                    Id = c.Id,
+                    Name = c.Name
+                }).ToList();
+                
             return result;
         }
     }

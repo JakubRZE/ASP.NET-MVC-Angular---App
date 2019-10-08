@@ -3,6 +3,7 @@ using ASP.NET_MVC_App.IRepositories;
 using ASP.NET_MVC_App.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic;
 using ASP.NET_MVC_App.Mocks;
 using ASP.NET_MVC_App.ViewModels;
 
@@ -35,7 +36,7 @@ namespace ASP.NET_MVC_App.Repositories
 
         //    if (!String.IsNullOrEmpty(searchString))
         //    {
-        //        query = query.Where(p => p.Name.ToLower().Contains(searchString.ToLower()) || 
+        //        query = query.Where(p => p.Name.ToLower().Contains(searchString.ToLower()) ||
         //                                 p.Price.ToString().Contains(searchString));
         //    }
 
