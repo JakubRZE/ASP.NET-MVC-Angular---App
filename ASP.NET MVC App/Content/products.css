@@ -7,3 +7,26 @@
 .table .thead-dark th {
     background-color: #4b45b8;
 }
+
+.active-blue-4 input:focus:not([readonly]) {
+    border: 1px solid #4b45b8;
+    box-shadow: 0 0 0 1px #4b45b8;
+}
+.active-blue-3 input {
+    border: 1px solid #4b45b8;
+    box-shadow: 0 0 0 1px #4b45b8;
+}
+
+.prod-form-control select:focus:not([readonly]) {
+    border: 1px solid #4b45b8;
+    box-shadow: 0 0 0 1px #4b45b8;
+}
+
+.prod-form-control select {
+    border: 1px solid #4b45b8;
+    box-shadow: 0 0 0 1px #4b45b8;
+}
+
+.price-inp {
+    max-width: 1000px;
+ }
