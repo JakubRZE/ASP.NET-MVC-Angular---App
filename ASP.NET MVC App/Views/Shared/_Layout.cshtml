@@ -11,7 +11,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top navbar-shadow">
         <a class="navbar-brand border-right ml-5 pr-4 font-weight-bold" href='@Url.Action("Index", "Home")'>Home</a>
-        <a class="navbar-brand pl-2 font-weight-light " href='@Url.Action("Index", "Product")'>Products</a>
+        <a class="navbar-brand ml-2 font-weight-light" href='@Url.Action("Index", "Product")' ng-class="{'active': active}">Products</a>
     </nav>
 
     <div class="container body-content">

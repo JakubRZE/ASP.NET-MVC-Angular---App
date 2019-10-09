@@ -4,14 +4,14 @@
     </div>
     <div class="col-md-4 col-sm-6 active-blue-4 d-flex align-items-center justify-content-center">
         <label class="m-0 ml-1 p-1 w-100">Price range:</label>
-        <input class="form-control price-inp" type="number" value="0.0" data-decimals="2" min="0" max="99" step="0.1"  ng-model="downPrice"/>
+        <input class="form-control price-inp" type="number" value="0.0" data-decimals="2" min="0" max="99" step="0.1" ng-model="downPrice" />
         <label class="m-0 p-1"> - </label>
-        <input class="form-control price-inp" type="number" value="0.0" data-decimals="2" min="0" max="99" step="0.1"  ng-model="upPrice"/>
+        <input class="form-control price-inp" type="number" value="0.0" data-decimals="2" min="0" max="99" step="0.1" ng-model="upPrice" />
         <label class="m-0 p-1"> $ </label>
     </div>
     <div class="col-md-4 col-sm-6 prod-form-control d-flex align-items-center justify-content-center">
         <label class="m-0" for="exampleSelect1">Category:</label>
-        <select class="form-control ml-3" id="exampleSelect1"  ng-model="category">
+        <select class="form-control ml-3" id="exampleSelect1" ng-model="category">
             <option value="null">-</option>
             <option ng-repeat="c in categories" value="{{c.Id}}">{{c.Name}}</option>
         </select>
@@ -20,9 +20,7 @@
         <button type="button" class="btn btn-outline-primary" id="filterBtn" ng-click="submitFilters()">Filter</button>
     </div>
 </div>
-
 <div class="card-body">
-
     <table class="table table-hover product-table">
         <thead class="thead-dark">
             <tr class="text-center">
@@ -51,7 +49,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
                     <table class="table table-striped">
                         <thead>
                             <tr>

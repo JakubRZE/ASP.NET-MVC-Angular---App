@@ -13,7 +13,6 @@
 
                     $scope.sortOrder = 'Asc';
                     $scope.sortParam = 'Name';
-
                     $scope.searchString = null;
                     $scope.category = null;
                     $scope.downPrice = null;

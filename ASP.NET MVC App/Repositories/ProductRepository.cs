@@ -17,7 +17,6 @@ namespace ASP.NET_MVC_App.Repositories
             _mockContext = mockContext;
         }
 
-
         public IList<Product> GetAllProducts(Filter filter)
         {
             var query = (from product in _mockContext.Products
