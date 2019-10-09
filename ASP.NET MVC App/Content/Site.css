@@ -35,3 +35,7 @@ textarea {
     object-fit: cover;
     object-position: center center;
 }
+
+.active {
+    border-bottom: 1px solid white;
+}

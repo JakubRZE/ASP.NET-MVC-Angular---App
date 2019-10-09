@@ -11,4 +11,13 @@
 </div>
 
 
-@section Scripts {}
+@section Scripts {
+    <script>
+        $(function() {
+            if (window.location.href.includes("Product"))
+                $("#navProd").addClass("active");
+            else
+                $("#navProd").RemoveClass("active");
+        });
+    </script>
+}
